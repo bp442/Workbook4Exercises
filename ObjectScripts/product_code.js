@@ -1,10 +1,13 @@
 "use strict";
 
 function parsePartCode(code){
+    let dash = Number(code.indexOf("-"));
+    let colon = Number(code.indexOf(":"));
+
     let productCode = {
-        supplierCode : code.substring(0, code.indexOf(":")),
-        productNumber : code.substring(code.indexOf(":")+1, code.indexOf("-")),
-        size : code.substring(code.indexOf("-")+1)
+        supplierCode : code.substring(0, colon),
+        productNumber : code.substring(colon+1, dash),
+        size : code.substring((dash+1))
 
     };
 
